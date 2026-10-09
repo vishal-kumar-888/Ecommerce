@@ -5,12 +5,10 @@ export const sendToken = (user, statusCode, message, res) => {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
-  res
-    .status(statusCode)
-    .cookie("token", token, {
-      expires: new Date(
-        Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-      ),
+
+  res.status(statusCode)
+.cookie("token", token, {
+      
       httpOnly: true,
     })
     .json({
